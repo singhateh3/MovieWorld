@@ -1,4 +1,3 @@
-import Header from "./pages/Header";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NavBar from "./pages/NavBar";
