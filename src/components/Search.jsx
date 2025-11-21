@@ -2,7 +2,7 @@ import React from "react";
 
 const Search = ({ searchterm, setSearchTerm, handleSearch }) => {
   return (
-    <div className="search-box mx-auto placeholder:text-gray-500 my-3  items-center w-96 flex rounded-md gap-2 ">
+    <div className="search-box mx-auto placeholder:text-gray-500 mb-2  items-center w-96 flex rounded-md gap-2 bg-transparent">
       <input
         type="text"
         placeholder="search..."

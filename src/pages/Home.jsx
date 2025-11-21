@@ -46,7 +46,7 @@ const Home = () => {
         handleSearch={handleSearch}
       />
 
-      <div className="movie-grid p-2">
+      <div className="movie-grid p-2 bg-gray-900">
         {error ? (
           <div className="error-message text-red-500">
             <p>{error}</p>

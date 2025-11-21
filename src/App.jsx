@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="main">
+      <div className="main bg-gray-900 pt-3">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />

@@ -18,7 +18,7 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+    <div className="relative bg-gray-700 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
       <img
         src={movie.image || defaultPoster}
         alt={movie.title}
@@ -37,11 +37,9 @@ const MovieCard = ({ movie }) => {
         </button>
       </div>
 
-      <div className="p-3 text-white">
+      <div className="p-3 text-white items-center text-center">
         <h3 className="font-bold">{movie.title}</h3>
-        <p className="text-sm opacity-70">
-          {movie.release_date?.split(".")[0]}
-        </p>
+        <p className="text-sm opacity-70 ">{movie.release_date.slice(0, 4)}</p>
       </div>
     </div>
   );
