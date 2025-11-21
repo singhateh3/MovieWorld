@@ -45,6 +45,9 @@ const Home = () => {
         setSearchTerm={setSearchTerm}
         handleSearch={handleSearch}
       />
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10 text-blue-400 tracking-wide">
+        🎬 MovieBox
+      </h1>
       <div className="movie-grid p-2">
         {error ? (
           <div className="error-message text-red-500">
