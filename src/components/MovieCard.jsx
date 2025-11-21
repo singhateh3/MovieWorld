@@ -1,8 +1,14 @@
 import React from "react";
 import { useMovieContext } from "../context/MovieContext";
+import movieImage from "../assets/image/default.jpg";
 
 const MovieCard = ({ movie }) => {
   const { isFavorite, toggleFavorite } = useMovieContext();
+
+  const defaultPoster = movieImage;
+
+  // const poster =
+  //   movie.image && movie.image !== "N/A" ? movie.image : defaultPoster;
 
   const favorite = isFavorite(movie.id);
 
@@ -14,9 +20,10 @@ const MovieCard = ({ movie }) => {
   return (
     <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
       <img
-        src={movie.image}
+        src={movie.image || defaultPoster}
         alt={movie.title}
         className="w-full h-80 object-cover"
+        onError={(e) => (e.currentTarget.src = defaultPoster)}
       />
 
       <div className="absolute right-3 top-3">
