@@ -31,6 +31,7 @@ export const MovieProvider = ({ children }) => {
       addToFavorites(movie);
     }
   };
+
   return (
     <MovieContext.Provider
       value={{

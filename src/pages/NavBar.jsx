@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import reloadIcon from "../assets/image/loading-arrow.png";
 
-const NavBar = () => {
+const NavBar = ({ onLogoClick }) => {
   return (
     <nav className="bg-gray-700 text-white shadow-md">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <div className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">
-          <Link to="/">🎬 MovieBox</Link>
+        <div
+          className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+          onClick={onLogoClick}
+        >
+          🎬 MovieBox
+        </div>
+        <div className="w-12" onClick={onLogoClick}>
+          <img src={reloadIcon} alt="" />
         </div>
 
         <div className="flex space-x-6 text-gray-300">

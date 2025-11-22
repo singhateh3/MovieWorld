@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
+// import backIcon from "../assets/image/back-button.png";
 
-const Home = () => {
+const Home = ({ refreshKey }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -27,17 +28,20 @@ const Home = () => {
       }
     };
     loadMovies();
-  }, []);
+  }, [refreshKey]);
 
-  function handleSearch() {
+  const handleSearch = () => {
     if (!searchterm.trim()) {
       movies;
     }
     const filteredMovies = allMovies.filter((movie) =>
       movie.title.toLowerCase().includes(searchterm.toLowerCase())
     );
+
     setMovies(filteredMovies);
-  }
+    setSearchTerm("");
+  };
+
   return (
     <>
       <Search
@@ -46,7 +50,7 @@ const Home = () => {
         handleSearch={handleSearch}
       />
 
-      <div className="movie-grid p-2 bg-gray-900">
+      <div className="movie-grid p-2">
         {error ? (
           <div className="error-message text-red-500">
             <p>{error}</p>
