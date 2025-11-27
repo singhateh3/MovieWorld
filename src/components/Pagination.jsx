@@ -1,16 +1,12 @@
-import React from "react";
-
 const Pagination = ({
   totalPosts,
   postPerPage,
   setCurrentPage,
   currentPage,
 }) => {
-  let pages = [];
   const totalPages = Math.ceil(totalPosts / postPerPage);
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push(i);
-  }
+
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <div className="flex justify-center gap-2 mt-5">
       {/* first Page  */}
