@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import reloadIcon from "../assets/image/loading-arrow.png";
+// import reloadIcon from "../assets/image/loading-arrow.png";
 
 const NavBar = ({ onLogoClick }) => {
   return (
