@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
-import Pagination from "./components/Pagination";
+import Pagination from "../components/Pagination";
 
 // import backIcon from "../assets/image/back-button.png";
 
