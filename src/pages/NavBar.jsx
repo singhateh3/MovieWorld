@@ -10,11 +10,13 @@ const NavBar = ({ onLogoClick }) => {
           className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
           onClick={onLogoClick}
         >
-          🎬 MovieBox
+          <Link to="/">🎬 MovieBox</Link>
         </div>
-        <div className="w-12" onClick={onLogoClick}>
-          <img src={reloadIcon} alt="" />
-        </div>
+        {/* <div className="w-12 cursor-pointer " onClick={onLogoClick}>
+          <Link to="/">
+            <img src={reloadIcon} alt="" />
+          </Link>
+        </div> */}
 
         <div className="flex space-x-6 text-gray-300">
           <Link

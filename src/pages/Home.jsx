@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
+import Pagination from "../components/pagination";
+
 // import backIcon from "../assets/image/back-button.png";
 
 const Home = ({ refreshKey }) => {
@@ -12,6 +14,8 @@ const Home = ({ refreshKey }) => {
 
   const [searchterm, setSearchTerm] = useState("");
   const [allMovies, setAllMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(15);
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -34,13 +38,21 @@ const Home = ({ refreshKey }) => {
     if (!searchterm.trim()) {
       movies;
     }
-    const filteredMovies = allMovies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchterm.toLowerCase())
-    );
+    try {
+      const filteredMovies = allMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchterm.toLowerCase())
+      );
 
-    setMovies(filteredMovies);
-    setSearchTerm("");
+      setMovies(filteredMovies);
+      setSearchTerm("");
+    } catch (err) {
+      setError(`${searchterm} does not exist`, err);
+    }
   };
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPosts = movies.slice(firstPostIndex, lastPostIndex);
 
   return (
     <>
@@ -51,6 +63,7 @@ const Home = ({ refreshKey }) => {
       />
 
       <div className="movie-grid p-2">
+        {movies.length === 0 && <p>No movies yet</p>}
         {error ? (
           <div className="error-message text-red-500">
             <p>{error}</p>
@@ -61,12 +74,18 @@ const Home = ({ refreshKey }) => {
           </div>
         ) : (
           <div className="movie-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {movies.map((movie) => (
+            {currentPosts.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}
           </div>
         )}
       </div>
+      <Pagination
+        totalPosts={movies.length}
+        postPerPage={postPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 };

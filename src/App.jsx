@@ -4,6 +4,7 @@ import NavBar from "./pages/NavBar";
 import Favorites from "./pages/Favorites";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Pagination from "./components/pagination";
 
 function App() {
   const [refreshKey, setRefreshKey] = useState(0);
