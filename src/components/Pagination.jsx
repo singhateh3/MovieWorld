@@ -9,7 +9,6 @@ const Pagination = ({
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <div className="flex justify-center gap-2 mt-5">
-      {/* first Page  */}
       <button
         className="disabled:opacity-40 rounded px-3 py-1 bg-gray-200"
         onClick={() => setCurrentPage(1)}
@@ -18,7 +17,6 @@ const Pagination = ({
         First
       </button>
 
-      {/* Previous  */}
       <button
         className="disabled:opacity-40 rounded px-3 py-1 bg-gray-200"
         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -37,7 +35,6 @@ const Pagination = ({
           {page}
         </button>
       ))}
-      {/* next  */}
       <button
         className="disabled:opacity-40 rounded px-3 py-1 bg-gray-200"
         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
@@ -46,7 +43,6 @@ const Pagination = ({
         Next
       </button>
 
-      {/* last Page  */}
       <button
         className="disabled:opacity-40 rounded px-3 py-1 bg-gray-200"
         onClick={() => setCurrentPage(totalPages)}

@@ -5,8 +5,6 @@ import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
 import Pagination from "../components/Pagination";
 
-// import backIcon from "../assets/image/back-button.png";
-
 const Home = ({ refreshKey }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
